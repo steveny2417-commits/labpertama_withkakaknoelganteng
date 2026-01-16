@@ -1,0 +1,26 @@
+word = "python" 
+guesses = ""
+lives = 5
+
+while lives > 0:
+    display = ""
+    for char in word:
+        if char in guesses:
+            display += char
+        else:
+            display += "_"
+    
+    print(f"\nWord: {display} | Lives: {lives}")
+
+    if "_" not in display:
+        print("You Win!")
+        break
+
+    guess = input("Enter a letter: ")
+    guesses += guess
+
+    if guess not in word:
+        lives -= 1
+
+if lives == 0:
+    print("Game Over! You lost.")
